@@ -1,71 +1,77 @@
+/**
+ * !unable to get the invalid test to display block during the check validation 
+ * 
+ */
+
+
+//Setting values to be inside of the dom for easier access
 let fn = document.forms["myForm"]["firstname"].value;
 let ln = document.forms["myForm"]["lastname"].value;
 let npi = document.forms["myForm"]["npi"].value;
 let busAdd = document.forms["myForm"]["baddress"].value;
 let number = document.forms["myForm"]["telephone"].value;
 let email = document.forms["myForm"]["email"].value;
-let checked = document.forms["myForm"]['Terms'].value;
+let checked = document.forms["myForm"]["Terms"].value;
 
+//creating a master function so that once the user clicks the button all functions will run
 document.querySelector(".submitButton").addEventListener("click", function () {
   validFirstName(fn);
   validLastName(ln);
-    validNPI(npi);
-    validAddress(busAdd);
+  validNPI(npi);
+  validAddress(busAdd);
   validatePhoneNumber(number);
-    ValidateEmail(email);
-    validateCheck(checked)
-    console.log(email)
+  ValidateEmail(email);
+  validateCheck(checked);
+  console.log(email);
 });
+
+//functions below check if parameter is valid using a regular expression
 
 function validFirstName(firstName) {
   var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
   if (!regName.test(firstName)) {
     console.log("Please enter in a valid first name.");
-  } 
+  }
 }
 
 function validLastName(lastName) {
-    var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-    if (!regName.test(lastName)) {
-        console.log("Please enter in a valid last name.")
-  
-  
-    }
+  var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+  if (!regName.test(lastName)) {
+    console.log("Please enter in a valid last name.");
+  }
 }
 
-
 function validNPI(npiInput) {
-    npiArray = Array.from(npiInput);
+  npiArray = Array.from(npiInput);
 
-    if (npiArray.length !== 10) {
-        console.log('Please enter a valid NPI');
-        document.getElementById("invalid").style.display = "block";
-    }
+  if (npiArray.length !== 10) {
+    console.log("Please enter a valid NPI");
+    document.getElementById("invalid").style.display = "block";
+  }
 }
 
 function validAddress(address) {
-    let regAddress = /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[ABCDFGHJKLMNPRSTV]{1,2}))*$/;
+  let regAddress =
+    /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[ABCDFGHJKLMNPRSTV]{1,2}))*$/;
 
-    if (!regAddress.test(address)) {
-        console.log('Please Enter a Valid business address')
-    }
+  if (!regAddress.test(address)) {
+    console.log("Please Enter a Valid business address");
+  }
 }
 
 function validatePhoneNumber(input_str) {
- let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
-   if ( !regex.test(input_str)) {
-     console.log("You have entered a invalid telephone")   
-  } 
-    
+  if (!regex.test(input_str)) {
+    console.log("You have entered a invalid telephone");
+  }
 }
-
+//Unable to get this particular RegEX to work
 function ValidateEmail(email) {
-    let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    console.log(regex.test(email))
-    if (!regex.test(email)) {
-    console.log('You entered a invalid email address');
-  
+  let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  console.log(regex.test(email));
+  if (!regex.test(email)) {
+    console.log("You entered a invalid email address");
   }
 }
 
