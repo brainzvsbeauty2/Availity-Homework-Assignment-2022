@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2 class="header__title">Register</h2>
+        <p class="header__description">
+          Create an account to be part of Availity's System!
+        </p>
+      </div>
+      <form
+        name="myForm"
+        class="form"
+        id="form"
+        onsubmit="validateForm()"
+        method="post"
+      >
+        <label for="fname"></label>
+
+          <input
+            type="text"
+            name="firstname"
+            id="fname"
+            placeholder="First Name"
+          />
+          
+           <div id="invalid">
+            <p>
+                Please Enter a Valid first name 
+            </p>
+        </div>
+
+          <label for="lname"></label>
+          <input
+            type="text"
+            name="lastname"
+            id="lname"
+            placeholder="Last Name"
+          />
+        
+           <div id="invalid">
+            <p>
+                Please Enter a valid last name
+            </p>
+        </div>
+      
+
+        <label for="npi"></label>
+        <input type="text" name="npi" id="npi" placeholder="NPI Number" />
+
+         <div id="invalid">
+            <p>
+                Please Enter a Valid 9 digit NPI number
+            </p>
+        </div>
+
+        <label for="baddress"></label>
+        <input
+          type="text"
+          name="baddress"
+          id="baddress"
+          placeholder="Business Address"
+        />
+
+         <div id="invalid">
+            <p>
+                Please Enter a valid business address
+        </div>
+        
+
+        <label for="telephone"></label>
+        <input
+          type="text"
+          name="telephone"
+          id="telephone"
+          placeholder="Telephone"
+        />
+       
+         <div id="invalid">
+            <p>
+                Please Enter a Valid 11 digit phone number
+            </p>
+        </div>
+
+        <label for="email"></label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Email Address"
+        />
+        
+        <div id="invalid">
+            <p>
+                Please Enter a Valid Email
+            </p>
+        </div>
+       
+
+
+
+        <div class="terms-Section">
+          <input type="checkbox" id="Terms" name="Terms" />
+          <label for="Terms"
+            >I accept the <a href="#"><span> Terms of Service</span></a> &
+            <a href="#"><span>Privacy Policy</span></a></label
+          >
+        </div>
+
+         <div id="invalid">
+            <p>
+                Please select our Terms and Conditions and Privacy Policy
+            </p>
+        </div>
+
+        <div class="submitButton">
+          <input type="button" value=" Register Now" href="#" />
+        </div>
+      </form>
+    </div>
+    <div class="alreadyUser">
+      <p>
+        Already have an account? <a href=""><span>Sign In</span></a>
+      </p>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
