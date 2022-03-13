@@ -5,7 +5,7 @@
 
 One of my biggest achievements, is getting my motorcycle license and owning a motorcycle. Being 4'9 you start to wonder if there are just a lot of things you can't do. After a while I started to believe it. I had to remember that this was something that I wanted since I was a kid and I couldn't keep pushing it aside. Being able to accomplish this goal, has made me feel like I can accomplish anything. This has me very determined to try and reach other goals. 
 
-(add how it makes you feel to be able to achieve riding your bike)
+
 
 #### Tell me about something you have read recently that you would recommend and why. (Can be a Github Repo, Article, Blog, Book, etc) 
 
@@ -15,4 +15,4 @@ I would recommend anyone to look up the benefits of positive thinking either in 
 #### How would you explain to your grandmother what Availity does?
 
 
-I would tell me grandmother that availity is like the postal service, You want to send a letter to someone. This letter for Availity is more like a claim. You submit the letter to the postal service which is Availity. Postal Servive(Availity) checks the envelope for the stamp and make sure the contents are correct like address. Then the postal service (Availity) send that off to who you want lets say the insurance compant. Someone at the insurance comapny  gets the letter and reads it and writes a response. The person then sends it back through the same postal service. The postal service (Availity) gives you the response.
+I would tell me grandmother that Availity is like the postal service, You want to send a letter to someone. In this case the letter is a claim being sent from the provider to an insurance company. You submit the letter to the postal service, or in this case,  Availity. The Postal Servive(Availity) checks the envelope, address, return information, stamp, etc. Then the postal service (Availity) sends that off to who you want, lets say the insurance company. The insurance comapny gets the letter and reads it, then composes a response. The insurance company then sends it back through the same postal service. The postal service (Availity) gives you the response.
