@@ -1,4 +1,4 @@
-//my example c
+//my example csv file
 const file = `FLglyzVeOu,Darci Defore,Humana,69,
 DP6NV2jIXQ,Eliz Ellisor,Wellpoint Inc.,48,
 5NX1WmHpm0,Lane Lawlor,Unitedhealth,86,
@@ -97,5 +97,5 @@ formattedPatientInformation = (formattedPatientInformation.sort(compareName));
 
 
 
-// Removing duplicate User Ids for the same Insurance Company, then only the record with the highest version should stay
+// Removing duplicate User Ids for the same Insurance Company, then only the record with the highest version should stay - Could not figure this one out 
 
