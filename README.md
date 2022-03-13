@@ -17,7 +17,7 @@ I would recommend anyone to look up the benefits of positive thinking either in 
 
 I would tell my grandmother that Availity is like the postal service. You want to send a letter to someone. In this case, the letter is a claim being sent from the provider to an insurance company. You submit the letter to the postal service, or in this case,  Availity. The Postal Service(Availity) checks the envelope, address, return information, stamp, etc. Then the postal service (Availity) sends that off to who you want, let's say the insurance company. The insurance company gets the letter, reads it, and then composes a response. The insurance company then sends it back through the same postal service. Again, the postal service (Availity) gives you the answer.
 
-Coding Exercises 
+#### Coding Exercises 
 
 1. Coding exercise: You are tasked to write a checker that validates the parentheses of a LISP code. Write a program (in Java or JavaScript) that takes in a string as an input and returns true if all the parentheses in the string are correctly closed and nested.
 
