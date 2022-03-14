@@ -41,9 +41,17 @@ function readFileAsString() {
     formattedPatientInformation = formattedPatientInformation.sort(compareName);
       console.log(formattedPatientInformation);
       
-      //Before breaking into health plans remove dups
+      //Before breaking into health plans remove dups (stackover flow)
       
-    
+      formattedPatientInformation = formattedPatientInformation.reduce((unique, o) => {
+       if (
+         !unique.some((obj) => obj.HealthPlan === o.HealthPlan && obj.Version === o.Version)
+       ) {
+         unique.push(o);
+       }
+       return unique;
+     }, []);
+     console.log(formattedPatientInformation);
 
     //Sorting by Payer name (Stackover flow)
     const groups = formattedPatientInformation.reduce(
@@ -55,7 +63,7 @@ function readFileAsString() {
     );
     console.log(groups);
 
-    // Removing duplicate User Ids for the same Insurance Company, then only the record with the highest version should stay - Could not figure this one out
+    
   };
   //This is picking the first file from the list when the user select the file
   reader.readAsText(files[0]);
