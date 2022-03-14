@@ -1,7 +1,10 @@
 let isFormValid = false;
 
 function validate(event) {
+  //tells the system if this event does not happen it normal action should not be taken
   event.preventDefault();
+
+  // Storing the input information into variable to be accessed by the dom
   let firstName = document.querySelector("#fname");
   let lastName = document.querySelector("#lname");
   let npi = document.querySelector("#npi");
@@ -10,52 +13,69 @@ function validate(event) {
   let email = document.querySelector("#email");
   let terms = document.querySelector("#Terms");
 
-  validateName(firstName);
-  validateName(lastName);
-  validNPI(npi);
-  validateAddress(baddress);
-  validatePhoneNumber(telephone);
-  ValidateEmail(email);
-  validateCheck(terms);
-
-  if (isFormValid) {
+  //This will move to a simple thank you page once the form is validated
+  if (
+    validateFirstName(firstName) &&
+    validateLastName(lastName) &&
+    validNPI(npi) &&
+    validateAddress(baddress) &&
+    validatePhoneNumber(telephone) &&
+    ValidateEmail(email) &&
+    validateCheck(terms)
+  ) {
     location.href = "/thankyoupage/page2.html";
   }
 }
 
-function validateName(name) {
+//nextElementSibling - property returns the next element in the same tree level
+
+function validateFirstName(firstName) {
   var regName = /^[a-zA-Z]+$/;
-  if (!regName.test(name.value)) {
-    isFormValid = false;
-    name.nextElementSibling.style.display = "block";
+  if (!regName.test(firstName.value)) {
+    firstName.nextElementSibling.style.display = "block";
+    return false;
   } else {
-    isFormValid = true;
-    name.nextElementSibling.style.display = "none";
+    firstName.nextElementSibling.style.display = "none";
+    return true;
   }
 }
 
+function validateLastName(lastName) {
+  var regName = /^[a-zA-Z]+$/;
+  if (!regName.test(lastName.value)) {
+    lastName.nextElementSibling.style.display = "block";
+    return false;
+  } else {
+    lastName.nextElementSibling.style.display = "none";
+    return true;
+  }
+}
+
+//pareInt a function used to analyze a string element by element and returns a number
+
 function validNPI(npiInput) {
   let npiNumber = parseInt(npiInput.value);
+
   if (npiInput === NaN) {
-    isFormValid = false;
     npiInput.nextElementSibling.style.display = "block";
+    return false;
   }
   if (npiNumber.toString().length !== 10) {
-    isFormValid = false;
     npiInput.nextElementSibling.style.display = "block";
+    return false;
   } else {
-    isFormValid = true;
     npiInput.nextElementSibling.style.display = "none";
+    return true;
   }
 }
 
 function validateAddress(address) {
   if (address.value === "") {
-    isFormValid = false;
     address.nextElementSibling.style.display = "block";
+    return false;
   } else {
-    isFormValid = true;
     address.nextElementSibling.style.display = "none";
+    return true;
   }
 }
 
@@ -63,33 +83,33 @@ function validatePhoneNumber(phNumber) {
   let regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
   if (!regex.test(phNumber.value)) {
-    isFormValid = false;
     phNumber.nextElementSibling.style.display = "block";
+    return false;
   } else {
-    isFormValid = true;
     phNumber.nextElementSibling.style.display = "none";
+    return true;
   }
 }
 
 function ValidateEmail(email) {
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (!regexEmail.test(email.value)) {
-    isFormValid = false;
     email.nextElementSibling.style.display = "block";
+    return false;
   } else {
-    isFormValid = true;
     email.nextElementSibling.style.display = "none";
+    return true;
   }
 }
 
 function validateCheck(terms) {
   if (!terms.checked) {
-    isFormValid = false;
     document.querySelector(".terms-Section").nextElementSibling.style.display =
       "block";
+    return false;
   } else {
-    isFormValid = true;
     document.querySelector(".terms-Section").nextElementSibling.style.display =
       "none";
+    return true;
   }
 }
