@@ -27,8 +27,9 @@ html {
     flex-direction: column;
    margin-left: 2%;
     margin-top: 20%;
+    color: white
 }
 
 .container p{
-    padding:  0 5%
+    padding:  0 5%;
 }
