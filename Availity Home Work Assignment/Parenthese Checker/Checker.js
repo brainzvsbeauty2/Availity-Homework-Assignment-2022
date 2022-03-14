@@ -26,30 +26,49 @@
  *
  */
 
-let correct = `(defun triple(x) 'Compute three times X."; Inline comments can (*3X))`;
-let inCorrect = `)()(defun triple (X)'Compute three times X.'; Inline comments can (*3X)))`;
+document.querySelector("button").addEventListener("click", function () {
+  let input = document.querySelector("input").value;
+
+  validateParentheses(input);
+  console.log(input);
+  console.log(validateParentheses(input));
+
+  if (validateParentheses(input) === " ") {
+    document.querySelector("span").textContent = "Enter a Lisp Code";
+    document.querySelector("span").style.color = "red";
+  }
+
+  if (validateParentheses(input) === true) {
+    document.querySelector("span").textContent = `It's Valid`;
+    document.querySelector("span").style.color = "green";
+  } else {
+    document.querySelector("span").textContent = "Is Not Valid";
+    document.querySelector("span").style.color = "red";
+  }
+});
 
 function validateParentheses(string) {
   const trash = [];
   let stringArray = Array.from(string);
   for (let i = 0; i < stringArray.length; i++) {
+    if (string === null) {
+      return false;
+    }
     if (stringArray[i] === "(") {
       //adding to trash
       trash.push(stringArray[i]);
+      
     } else if (stringArray[i] === ")") {
       // Checking if there was anything in trash to pop
       //If there wasn't anything in trash to pop the loop would exit
       if (trash.length === 0) {
         return false;
         //removing from trash if there is something there
-      } else trash.pop();
+      } else {
+        trash.pop();
+        return true;
+      }
     }
   }
   //This checks if the trash is empty and collects that data and stores it into a variable that will be return
-  const something = trash.length === 0;
-  console.log(something);
-  return something;
 }
-
-console.log(`Should be true: It's actually ${validateParentheses(correct)}`);
-console.log(`Should be false: It's actually ${validateParentheses(inCorrect)}`);

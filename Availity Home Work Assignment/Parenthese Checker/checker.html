@@ -4,10 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parentheses Checker </title>
+    <title>Parentheses Checker</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Parentheses Checker</h2>
+    <div class="container">
+      <h2>Parentheses Checker</h2>
+      <p class="validation">
+        Enter your Lips Code: <span>To see if it is Valid</span>
+      </p>
+      <input type="text" placeholder="LISP Code" id="input" />
+      <button>Check</button>
+
+      <p>Try this correct Lisp Code: (defun triple(x) 'Compute three times X."; Inline comments can (*3X)) </p>
+
+      <p>Try this incorrect Lisp Code: )()(defun triple (X)'Compute three times X.'; Inline comments can (*3X))) </p>
+    </div>
   </body>
 
   <script src="Checker.js"></script>
