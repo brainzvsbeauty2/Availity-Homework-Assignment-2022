@@ -1,101 +1,67 @@
-//my example csv file
-const file = `FLglyzVeOu,Darci Defore,Humana,69,
-DP6NV2jIXQ,Eliz Ellisor,Wellpoint Inc.,48,
-5NX1WmHpm0,Lane Lawlor,Unitedhealth,86,
-rQz4BbSixu,Latesha Larue,Wellpoint Inc.,24,
-iY7CeoftmK,Boyce Belote,Aetna,36,
-yUHXZic4Xy,Kecia Kappel,Kaiser Foundation,80,
-fTZ5yYgDt7,Jacque Jenkinson,Unitedhealth,8,
-dggQIKcYoG,Josefa Jutras,Humana,72,
-LsOal9LVXf,Mona Mchone,Unitedhealth,23,
-zOkY9yDkXk,Carley Crosswhite,Cigna,58,
-6srgqUUTP5,Chin Comacho,Unitedhealth,54,
-o3fe6iURo6,Harlan Hollman,Wellpoint Inc.,38,
-fTZ5yYgDt7,Marcelina Merkley,Kaiser Foundation,59,
-9XN2r8tzUK,Delicia Derossett,Humana,39,
-gFP97yN0a5,Laurence Luick,Unitedhealth,92,
-5Zh5IIIMeV,Adina Abercrombie,Aetna,41,
-TMROZrZipP,Shan Stembridge,Aetna,60,
-pMWsg1bQxN,Shae Spitzer,Wellpoint Inc.,19,
-fTZ5yYgDt7,Dannette Duley,Unitedhealth,16,
-bsTWnKdAJK,Stefan Shipe,Cigna,76,
-62icfBNVH1,Noella Nack,Cigna,44,
-HqkqAOBzeY,Kaylee Kratzer,Kaiser Foundation,86,
-NHON0Fcqke,Kasi Kubik,Cigna,46,
-i5bf20rfhg,Garnet Grube,Humana,20,
-DPbmZqonFQ,Pricilla Polly,Humana,12,
-0CktN7f26V,Dori Duhart,Humana,40,
-vInbtLlY9K,Jerilyn Jacox,Humana,96,
-cJBoilZpRO,Cherryl Court,Humana,57,
-htgtb6rz7s,Xavier Xavier,Humana,35,
-Ydeueigx26,Isela Imboden,Humana,38,
-2CIsRI7nAp,Allan Aumann,Humana,60,
-clGqYGTT7S,Arden Aye,Humana,81,
-NyjOgIs5zi,Terese Thaxton,Humana,18,
-WiEEam7zkb,Odis Okamura,Humana,71,
-J89Bq3JE3p,Adelaida Amado,Humana,46,
-gm2wfMCxkf,Lorene Lamoureux,Aetna,32,
-fBM3rRo707,Angla Anstine,Cigna,99,
-o62rCzfgBN,Loyce Lack,Cigna,37,
-FoxO9ZfWWo,Dorothea Dorfman,Aetna,91,
-5e9MqNM2nC,Dudley Dozal,Humana,74,
-T4rJ04BmVL,Maricela Mcghee,Unitedhealth,42,
-nWeToHr2eA,Roxie Rothstein,Cigna,73,
-nWeToHr2eA,Roxie Rothstein,Cigna,73,
-oXwDoSYjHk,Karleen Klocke,Unitedhealth,19,
-I5fWQ3d7NR,Tawna Tadlock,Wellpoint Inc.,21,
-5VsOhet5rT,Tai Tancredi,Kaiser Foundation,61,
-90EoNYpxHw,Curtis Cunningham,Humana,91,
-Fnk66A1UeJ,Milly Meeker,Unitedhealth,51,
-rFZ490EWw6,Onie Ohare,Aetna,1,
-orw9UCv1pR,Florentino Frandsen,Aetna,79,
-JuvRfstZxK,Lillia Losh, Unitedhealth, 48;`;
+const myForm = document.getElementById("myForm");
+const csv = document.getElementById("csv");
 
-let formattedPatientInformation = [];
-const patientListRaw = file.split(/\r?\n/);
+document.getElementById("csv").addEventListener("change", readFileAsString);
+function readFileAsString() {
+  var files = this.files;
+  if (files.length === 0) {
+    console.log("No file is selected");
+    return;
+  }
 
+  var reader = new FileReader();
+  reader.onload = function (event) {
+    const file = event.target.result;
 
+    let formattedPatientInformation = [];
+    const patientListRaw = file.split(/\r?\n/);
 
-patientListRaw.forEach((patient) => {
-    //need to store into something 
-    const patientInformation  = patient.split(',');
-    const person = {
-      Name: patientInformation[1],
-      UserID: patientInformation[0],
-      Version: patientInformation[3],
-      HealthPlan: patientInformation[2],
-    };
-   
-    formattedPatientInformation.push(person)
-});
-//sort by name in ascending order a - z:
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-function compareName(a, b) {
-    if (a.Name < b.Name) {
+    patientListRaw.forEach((patient) => {
+      const patientInformation = patient.split(",");
+      const person = {
+        Name: patientInformation[1],
+        UserID: patientInformation[0],
+        Version: patientInformation[3],
+        HealthPlan: patientInformation[2],
+      };
+
+      formattedPatientInformation.push(person);
+    });
+    //sort by name in ascending order a - z:
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    function compareName(a, b) {
+      if (a.Name < b.Name) {
         return -1;
-    } else if (a.Name > b.Name) {
+      } else if (a.Name > b.Name) {
         return 1;
-    } else {
+      } else {
         return 0;
+      }
     }
+    formattedPatientInformation = formattedPatientInformation.sort(compareName);
+      console.log(formattedPatientInformation);
+      
+      //Before breaking into health plans remove dups
+      
+
+    //Sorting by Payer name (Stackover flow)
+    const groups = formattedPatientInformation.reduce(
+      (groups, item) => ({
+        ...groups,
+        [item.HealthPlan]: [...(groups[item.HealthPlan] || []), item],
+      }),
+      {}
+    );
+    console.log(groups);
+
+    // Removing duplicate User Ids for the same Insurance Company, then only the record with the highest version should stay - Could not figure this one out
+  };
+  //This is picking the first file from the list when the user select the file
+  reader.readAsText(files[0]);
 }
-formattedPatientInformation = (formattedPatientInformation.sort(compareName));
 
-
- 
-
-
-//Sorting by Payer name (Stackover flow)
-// const groups = formattedPatientInformation.reduce(
-//   (groups, item) => ({
-//     ...groups,
-//     [item.HealthPlan]: [...(groups[item.HealthPlan] || []), item],
-//   }),
-//   {}
-// );
-// console.log(groups);
-
-
-
-// Removing duplicate User Ids for the same Insurance Company, then only the record with the highest version should stay - Could not figure this one out 
-
+myForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  console.log(e.target);
+  console.log(csv.file, csv.value);
+});
