@@ -43,6 +43,7 @@ function readFileAsString() {
       
       //Before breaking into health plans remove dups
       
+    
 
     //Sorting by Payer name (Stackover flow)
     const groups = formattedPatientInformation.reduce(

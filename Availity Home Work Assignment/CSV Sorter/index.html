@@ -5,14 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSV Sorter</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header>
       <h1>CSV Sorter</h1>
-
-<form id="myForm">
-  <input type="file" id="csv" name="filename" accept = ".csv">
-  <input type="submit">
-</form>
+      <p>Please Upload your CSV File.</p>
+      <small>Only takes CSV Files</small>
+</header>
+    <div class="container">
+    <form id="myForm" class="form">
+      <input type="file" id="csv" name="filename" accept=".csv" />
+      <input type="submit" />
+    </form>
+  </div>
   </body>
-  <script src ="script.js"></script>
+  <script src="script.js"></script>
 </html>
