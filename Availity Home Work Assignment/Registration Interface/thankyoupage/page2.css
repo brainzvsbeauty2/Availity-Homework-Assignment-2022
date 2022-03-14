@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    font-family: poppins, sans-serif;
+    display: flex;
+    background-color: hsl(212, 45%, 89%);
+    background-image:url(/Images/clay-banks-POzx_amnWJw-unsplash.jpg);
+   background-position: 60% 35% ;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container{
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    flex-direction: column;
+   margin-left: 2%;
+    margin-top: 20%;
+}
+
+.container p{
+    padding:  0 5%
+}

@@ -15,50 +15,29 @@
           Create an account to be part of Availity's System!
         </p>
       </div>
-      <form
-        name="myForm"
-        class="form"
-        id="form"
-        onsubmit="validateForm()"
-        method="post"
-      >
+      <form action="#" name="myForm" class="form" id="form">
         <label for="fname"></label>
-
-          <input
-            type="text"
-            name="firstname"
-            id="fname"
-            placeholder="First Name"
-          />
-          
-           <div id="invalid">
-            <p>
-                Please Enter a Valid first name 
-            </p>
+        <input
+          type="text"
+          name="firstname"
+          id="fname"
+          placeholder="First Name"
+        />
+        <div id="invalid">
+          <p>Please Enter a Valid first name</p>
         </div>
 
-          <label for="lname"></label>
-          <input
-            type="text"
-            name="lastname"
-            id="lname"
-            placeholder="Last Name"
-          />
-        
-           <div id="invalid">
-            <p>
-                Please Enter a valid last name
-            </p>
+        <label for="lname"></label>
+        <input type="text" name="lastname" id="lname" placeholder="Last Name" />
+        <div id="invalid">
+          <p>Please Enter a valid last name</p>
         </div>
-      
 
         <label for="npi"></label>
         <input type="text" name="npi" id="npi" placeholder="NPI Number" />
 
-         <div id="invalid">
-            <p>
-                Please Enter a Valid 9 digit NPI number
-            </p>
+        <div id="invalid">
+          <p>Please Enter a Valid 10 digit NPI number</p>
         </div>
 
         <label for="baddress"></label>
@@ -69,11 +48,9 @@
           placeholder="Business Address"
         />
 
-         <div id="invalid">
-            <p>
-                Please Enter a valid business address
+        <div id="invalid">
+          <p>Please Enter a valid business address</p>
         </div>
-        
 
         <label for="telephone"></label>
         <input
@@ -82,11 +59,9 @@
           id="telephone"
           placeholder="Telephone"
         />
-       
-         <div id="invalid">
-            <p>
-                Please Enter a Valid 11 digit phone number
-            </p>
+
+        <div id="invalid">
+          <p>Please Enter a Valid 11 digit phone number</p>
         </div>
 
         <label for="email"></label>
@@ -96,15 +71,10 @@
           id="email"
           placeholder="Email Address"
         />
-        
+
         <div id="invalid">
-            <p>
-                Please Enter a Valid Email
-            </p>
+          <p>Please Enter a Valid Email</p>
         </div>
-       
-
-
 
         <div class="terms-Section">
           <input type="checkbox" id="Terms" name="Terms" />
@@ -114,22 +84,20 @@
           >
         </div>
 
-         <div id="invalid">
-            <p>
-                Please select our Terms and Conditions and Privacy Policy
-            </p>
+        <div id="invalid">
+          <p>Please select our Terms and Conditions and Privacy Policy</p>
         </div>
 
         <div class="submitButton">
-          <input type="button" value=" Register Now" href="#" />
+          <input
+            type="submit"
+            value=" Register Now"
+            onclick="validate(event)"
+          />
         </div>
       </form>
     </div>
-    <div class="alreadyUser">
-      <p>
-        Already have an account? <a href=""><span>Sign In</span></a>
-      </p>
-    </div>
-    <script src="./script.js"></script>
+
+    <script src="script.js"></script>
   </body>
 </html>

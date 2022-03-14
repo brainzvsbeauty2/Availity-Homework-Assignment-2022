@@ -1,82 +1,95 @@
-/**
- * !unable to get the invalid test to display block during the check validation 
- * 
- */
+let isFormValid = false;
 
+function validate(event) {
+  event.preventDefault();
+  let firstName = document.querySelector("#fname");
+  let lastName = document.querySelector("#lname");
+  let npi = document.querySelector("#npi");
+  let baddress = document.querySelector("#baddress");
+  let telephone = document.querySelector("#telephone");
+  let email = document.querySelector("#email");
+  let terms = document.querySelector("#Terms");
 
-//Setting values to be inside of the dom for easier access
-let fn = document.forms["myForm"]["firstname"].value;
-let ln = document.forms["myForm"]["lastname"].value;
-let npi = document.forms["myForm"]["npi"].value;
-let busAdd = document.forms["myForm"]["baddress"].value;
-let number = document.forms["myForm"]["telephone"].value;
-let email = document.forms["myForm"]["email"].value;
-let checked = document.forms["myForm"]["Terms"].value;
-
-//creating a master function so that once the user clicks the button all functions will run
-document.querySelector(".submitButton").addEventListener("click", function () {
-  validFirstName(fn);
-  validLastName(ln);
+  validateName(firstName);
+  validateName(lastName);
   validNPI(npi);
-  validAddress(busAdd);
-  validatePhoneNumber(number);
+  validateAddress(baddress);
+  validatePhoneNumber(telephone);
   ValidateEmail(email);
-  validateCheck(checked);
-  console.log(email);
-});
+  validateCheck(terms);
 
-//functions below check if parameter is valid using a regular expression
-
-function validFirstName(firstName) {
-  var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-  if (!regName.test(firstName)) {
-    console.log("Please enter in a valid first name.");
+  if (isFormValid) {
+    location.href = "/thankyoupage/page2.html";
   }
 }
 
-function validLastName(lastName) {
-  var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-  if (!regName.test(lastName)) {
-    console.log("Please enter in a valid last name.");
+function validateName(name) {
+  var regName = /^[a-zA-Z]+$/;
+  if (!regName.test(name.value)) {
+    isFormValid = false;
+    name.nextElementSibling.style.display = "block";
+  } else {
+    isFormValid = true;
+    name.nextElementSibling.style.display = "none";
   }
 }
 
 function validNPI(npiInput) {
-  npiArray = Array.from(npiInput);
-
-  if (npiArray.length !== 10) {
-    console.log("Please enter a valid NPI");
-    document.getElementById("invalid").style.display = "block";
+  let npiNumber = parseInt(npiInput.value);
+  if (npiInput === NaN) {
+    isFormValid = false;
+    npiInput.nextElementSibling.style.display = "block";
+  }
+  if (npiNumber.toString().length !== 10) {
+    isFormValid = false;
+    npiInput.nextElementSibling.style.display = "block";
+  } else {
+    isFormValid = true;
+    npiInput.nextElementSibling.style.display = "none";
   }
 }
 
-function validAddress(address) {
-  let regAddress =
-    /^[0-9]{1,4}(([\-\/][0-9]{1,4})|(\/[ABCDFGHJKLMNPRSTV]{1,2}))*$/;
-
-  if (!regAddress.test(address)) {
-    console.log("Please Enter a Valid business address");
+function validateAddress(address) {
+  if (address.value === "") {
+    isFormValid = false;
+    address.nextElementSibling.style.display = "block";
+  } else {
+    isFormValid = true;
+    address.nextElementSibling.style.display = "none";
   }
 }
 
-function validatePhoneNumber(input_str) {
-  let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+function validatePhoneNumber(phNumber) {
+  let regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-  if (!regex.test(input_str)) {
-    console.log("You have entered a invalid telephone");
+  if (!regex.test(phNumber.value)) {
+    isFormValid = false;
+    phNumber.nextElementSibling.style.display = "block";
+  } else {
+    isFormValid = true;
+    phNumber.nextElementSibling.style.display = "none";
   }
 }
-//Unable to get this particular RegEX to work
+
 function ValidateEmail(email) {
-  let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  console.log(regex.test(email));
-  if (!regex.test(email)) {
-    console.log("You entered a invalid email address");
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (!regexEmail.test(email.value)) {
+    isFormValid = false;
+    email.nextElementSibling.style.display = "block";
+  } else {
+    isFormValid = true;
+    email.nextElementSibling.style.display = "none";
   }
 }
 
-function validateCheck() {
-  if (!document.getElementById("Terms").checked) {
-    console.log("You didn't check it");
+function validateCheck(terms) {
+  if (!terms.checked) {
+    isFormValid = false;
+    document.querySelector(".terms-Section").nextElementSibling.style.display =
+      "block";
+  } else {
+    isFormValid = true;
+    document.querySelector(".terms-Section").nextElementSibling.style.display =
+      "none";
   }
 }
